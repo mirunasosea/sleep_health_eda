@@ -7,11 +7,15 @@ import plotly.express as px
 
 st.title("📊 Cerinta 2 – Analiză exploratorie")
 
-if 'df_filtered' not in st.session_state:
-    st.warning("⚠️ Te rog să încarci și să filtrezi datele în Cerința 1.")
+if 'df_filtered' in st.session_state:
+    df = st.session_state['df_filtered']
+    st.caption("📌 Analiza se face pe dataset FILTRAT")
+elif 'df' in st.session_state:
+    df = st.session_state['df']
+    st.caption("ℹ️ Analiza se face pe dataset ORIGINAL")
+else:
+    st.warning("⚠️ Te rog să încarci datele în Cerința 1.")
     st.stop()
-
-df = st.session_state['df_filtered'].copy()
 
 st.subheader("Dimensiunea datasetului")
 col1, col2 = st.columns(2)
