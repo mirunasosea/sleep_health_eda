@@ -1,18 +1,16 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
 
 st.title("📊 Cerinta 2 – Analiză exploratorie")
 
 if 'df_filtered' in st.session_state:
     df = st.session_state['df_filtered']
-    st.caption("📌 Analiza se face pe dataset FILTRAT")
+    st.caption(" Utilizam datasetul FILTRAT")
 elif 'df' in st.session_state:
     df = st.session_state['df']
-    st.caption("ℹ️ Analiza se face pe dataset ORIGINAL")
+    st.caption(" Utilizam dataset-ul ORIGINAL")
 else:
     st.warning("⚠️ Te rog să încarci datele în Cerința 1.")
     st.stop()

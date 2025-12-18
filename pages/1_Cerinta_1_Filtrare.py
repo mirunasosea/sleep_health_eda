@@ -97,6 +97,6 @@ if 'df' in st.session_state:
     st.subheader("Dataset filtrat (preview live)")
     st.dataframe(df_preview)
 
-    if st.button("✅ Folosește acest dataset în restul aplicației"):
+    if st.button("Aplica filtrele selectate"):
         st.session_state['df_filtered'] = df_preview
         st.success("Dataset filtrat salvat pentru restul cerintelor!")

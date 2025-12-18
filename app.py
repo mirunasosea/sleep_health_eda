@@ -16,4 +16,8 @@ calitatea somnului și stilul de viață, folosind Streamlit.
 📌 Navighează folosind meniul din stânga pentru:
 - **Cerinta 1** – încărcare și filtrare date
 - **Cerinta 2** – analiză statistică și valori lipsă
+- **Cerinta 3** – analiză statistică coloane numerice
+- **Cerinta 4** – analiză statistică coloane categorice
+- **Cerinta 5** – calcul corelatii si outlieri
+                        
 """)

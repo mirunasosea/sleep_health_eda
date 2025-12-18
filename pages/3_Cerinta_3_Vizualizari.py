@@ -8,10 +8,10 @@ st.title("📈 Cerința 3 – Analiza unei coloane numerice")
 # Verificăm dacă datele există
 if 'df_filtered' in st.session_state:
     df = st.session_state['df_filtered']
-    st.caption("📌 Analiza se face pe dataset FILTRAT")
+    st.caption(" Utilizam datasetul FILTRAT")
 elif 'df' in st.session_state:
     df = st.session_state['df']
-    st.caption("ℹ️ Analiza se face pe dataset ORIGINAL")
+    st.caption(" Utilizam datasetul ORIGINAL")
 else:
     st.warning("⚠️ Te rog să încarci datele în Cerința 1.")
     st.stop()
@@ -64,6 +64,16 @@ fig_hist = px.histogram(
 st.plotly_chart(fig_hist, use_container_width=True)
 
 st.subheader("Boxplot")
+
+# Q1 = df[selected_col].quantile(0.25)
+# Q3 = df[selected_col].quantile(0.75)
+# IQR = Q3 - Q1
+# lower_fence = Q1 - 1.5 * IQR
+# upper_fence = Q3 + 1.5 * IQR
+
+# outliers = df[(df[selected_col] < lower_fence) | (df[selected_col] > upper_fence)]
+# n_outliers = len(outliers)
+# pct_outliers = (n_outliers / len(df) * 100) if len(df) > 0 else 0
 
 fig_box = px.box(
     data,
