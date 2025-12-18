@@ -50,7 +50,7 @@ fig = px.bar(
 )
 fig.update_traces(textposition='outside')
 fig.update_xaxes(tickangle=45)
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 numeric_cols = df.select_dtypes(include=np.number).columns.tolist()
 

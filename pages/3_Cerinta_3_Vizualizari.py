@@ -61,7 +61,7 @@ fig_hist = px.histogram(
     labels={selected_col: selected_col}
 )
 
-st.plotly_chart(fig_hist, use_container_width=True)
+st.plotly_chart(fig_hist, width="stretch")
 
 st.subheader("Boxplot")
 
@@ -82,5 +82,5 @@ fig_box = px.box(
     points="outliers"
 )
 
-st.plotly_chart(fig_box, use_container_width=True)
+st.plotly_chart(fig_box, width="stretch")
 

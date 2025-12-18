@@ -50,7 +50,7 @@ fig_bar = px.bar(
 )
 fig_bar.update_traces(textposition="outside")
 
-st.plotly_chart(fig_bar, use_container_width=True)
+st.plotly_chart(fig_bar, width="stretch")
 
 # Pie chart
 fig_pie = px.pie(
@@ -59,11 +59,11 @@ fig_pie = px.pie(
     values="Frecvență",
     title=f"Structura procentuală – {selected_col}"
 )
-st.plotly_chart(fig_pie, use_container_width=True)
+st.plotly_chart(fig_pie, width="stretch")
 
 # Tabel
 st.subheader("Tabel frecvențe")
-st.dataframe(freq_df, use_container_width=True)
+st.dataframe(freq_df, width="stretch")
 
 # TOP-N categorii
 st.markdown("---")
@@ -106,7 +106,7 @@ if st.button("Aplica TOP-N categorii"):
         title=f"Distribuția Top-{top_n} + Other – {selected_col}"
     )
     fig_bar_o.update_traces(textposition="outside")
-    st.plotly_chart(fig_bar_o, use_container_width=True)
+    st.plotly_chart(fig_bar_o, width="stretch")
 
     # Pie chart
     fig_pie_o = px.pie(
@@ -115,11 +115,11 @@ if st.button("Aplica TOP-N categorii"):
         values="Frecvență",
         title=f"Structura procentuală Top-{top_n} + Other – {selected_col}"
     )
-    st.plotly_chart(fig_pie_o, use_container_width=True)
+    st.plotly_chart(fig_pie_o, width="stretch")
 
     # Tabel
     st.subheader("Tabel frecvențe (Top-N + Other)")
-    st.dataframe(freq_df_o, use_container_width=True)
+    st.dataframe(freq_df_o, width="stretch")
 
     if st.button("✅ Salvează această transformare pentru urmatorul pas"):
         df_saved = df.copy()

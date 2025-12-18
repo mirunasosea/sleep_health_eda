@@ -3,11 +3,19 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
-df = (
-    st.session_state.get("df_categorical_processed")
-    or st.session_state.get("df_filtered")
-    or st.session_state.get("df")
-)
+
+if 'df_categorical_processed' in st.session_state:
+    df = st.session_state['df_categorical_processed']
+    st.caption(" Utilizam datasetul PROCESAT")
+elif 'df_filtered' in st.session_state:
+    df = st.session_state['df_filtered']
+    st.caption(" Utilizam datasetul FILTRAT")
+elif 'df' in st.session_state:
+    df = st.session_state['df']
+    st.caption(" Utilizam datasetul ORIGINAL")
+else:
+    st.warning("⚠️ Te rog să încarci datele în Cerința 1.")
+    st.stop()
 if df is None:
     st.warning("⚠️ Te rog să încarci datele în Cerința 1.")
     st.stop()
@@ -29,7 +37,7 @@ fig_corr = px.imshow(
     zmax=1,
     title="Heatmap corelații Pearson"
 )
-st.plotly_chart(fig_corr, use_container_width=True)
+st.plotly_chart(fig_corr, width="stretch")
 
 st.subheader("🔍 Analiză relație între două variabile numerice")
 col_x = st.selectbox("Alege prima variabilă (X)", numeric_cols)
@@ -49,7 +57,7 @@ fig_scatter = px.scatter(
     title=f"Scatter plot: {col_x} vs {col_y}",
     trendline="ols"
 )
-st.plotly_chart(fig_scatter, use_container_width=True)
+st.plotly_chart(fig_scatter, width="stretch")
 
 st.subheader("🚨 Detecția outlierilor (metoda IQR)")
 
@@ -75,7 +83,7 @@ for col in numeric_cols:
 
 outlier_df = pd.DataFrame(outlier_summary)
 st.subheader("Tabel outlieri (IQR)")
-st.dataframe(outlier_df, use_container_width=True)
+st.dataframe(outlier_df, width="stretch")
 
 st.subheader("Vizualizare outlieri pentru o coloană")
 
@@ -94,7 +102,7 @@ fig_outliers.add_hline(y=lower_fence, line_dash="dash", line_color="red", annota
 fig_outliers.add_hline(y=upper_fence, line_dash="dash", line_color="red", annotation_text="Upper Fence")
     
 
-st.plotly_chart(fig_outliers, use_container_width=True)
+st.plotly_chart(fig_outliers, width="stretch")
 
 
 
